@@ -1,0 +1,7 @@
+{
+  "name": "Stellar.Phone.SupportApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
