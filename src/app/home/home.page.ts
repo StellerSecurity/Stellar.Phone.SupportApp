@@ -9,11 +9,17 @@ import { Intercom } from '@capacitor-community/intercom';
 export class HomePage {
 
   constructor() {
+
+  }
+
+  openIntercom() {
     Intercom.registerUnidentifiedUser();
+    Intercom.displayMessageComposer({ message: "" });
   }
   displayLauncher() {
     Intercom.displayLauncher();
   }
+
   hideLauncher() {
     Intercom.hideLauncher();
   }

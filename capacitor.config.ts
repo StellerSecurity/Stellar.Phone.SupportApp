@@ -2,15 +2,15 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'Stellar.Phone.SupportApp',
-  appName: 'myApp',
+  appName: 'Support',
   webDir: 'www',
   server: {
     androidScheme: 'https'
   },
   "plugins": {
     "Intercom": {
-      "androidApiKey": "dG9rOjkwOWZlYzY5XzI5YzhfNDMxNl9hNmQzXzkxZWUxZmIwYjcxMToxOjA",
-      "androidAppId": "Stellar.Phone.SupportApp"
+      "androidApiKey": "android_sdk-330bc061870e0cfc2d59a8c0b2bdd3a5c6f47f28",
+      "androidAppId": "jkv7s675"
     }
   }
 };
