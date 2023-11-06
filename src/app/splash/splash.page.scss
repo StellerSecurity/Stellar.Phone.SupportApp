@@ -1,0 +1,17 @@
+.container {
+    height: 85%;
+    position: relative;
+}
+
+.ml-10{
+    margin-left: 10%;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    -ms-transform: translate(-45%, -50%);
+    transform: translate(-45%, -50%);
+}

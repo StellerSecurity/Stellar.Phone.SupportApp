@@ -1,31 +1,126 @@
-#container {
+body {
+  font-family: 'TwCen', sans-serif;
+}
+
+.outerBox {
+  background-color: #4264FB;
+  height: 100%;
+}
+
+.innerBox {
+  background-color: #FFFFFF;
+  height: 90%;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+}
+
+.supportText {
   text-align: center;
+    color: white;
+      font-family: 'TwCen', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21.75px;
+    }
+    
+    .mainHeading {
+      font-family: 'TwCen', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 19.3px;
+      letter-spacing: -3%;
+      text-align: Center;
+      color: #4264FA;
+    }
+    
+    .cardHeading {
+      font-family: 'TwCen', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16.89px;
+      color: #4264FB;
+    }
+    
+    .cardHeadingSelected {
+      font-family: 'TwCen', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16.89px;
+      color: #ffffff;
+    }
+    
+    .paragraph {
+      font-family: 'TwCen', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: -2%;
+      text-align: Center;
+      color: #4D4C4C;
+    }
+    
+    .cardStyle {
+      font-family: 'TwCen', sans-serif;
+      border: 2px solid #00000012;
+      border-radius: 15px;
+      box-shadow: none;
+    }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.cardStyleSelected {
+  font-family: 'TwCen', sans-serif;
+  border: 2px solid #00000012;
+  border-radius: 15px;
+  box-shadow: none;
+  background-color: #4264FB;
 }
 
-ion-footer {
-  box-shadow: none !important;
+.appInfo {
+  padding: 5%;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.mt-4 {
+  margin-top: 40%;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.pt-5 {
+  padding-top: 5%;
 }
 
-#container a {
-  text-decoration: none;
+.extraPadding {
+  padding-left: 20% !important;
+  padding-right: 20% !important;
+}
+
+.tag {
+  font-family: 'TwCen', sans-serif;
+  border: 1px solid #4264FB;
+  font-size: 11px;
+  padding: 5%;
+  border-radius: 20px;
+  color: #4264FB;
+}
+
+.tagSelected {
+  font-family: 'TwCen', sans-serif;
+  background-color: #ffffff;
+  font-size: 11px;
+  padding: 5%;
+  border-radius: 20px;
+  color: #4264FB;
+}
+
+.cardPparagraph {
+  font-family: 'TwCen', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #8E8E8E;
+}
+
+.cardPparagraphSelected {
+  font-family: 'TwCen', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ffffff;
 }

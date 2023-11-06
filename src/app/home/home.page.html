@@ -1,44 +1,111 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Support
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
 
-  <p class="ion-padding">At Steller Security we offer multiple options for help:</p>
+  <div class="outerBox" id="container">
+    <br>
+    <h3 class="supportText">Support</h3>
+    <br>
+    <div class="innerBox">
+      <div class="appInfo">
+        <h1 class="mainHeading">Stellar Security</h1>
+        <p class="paragraph">Stellar offers many ways to help its users<br> and the broader community.</p>
+      </div>
 
-  <ion-list>
-    <ion-item detail="true" (click)="openIntercom()">
-      <ion-label>
-        <h3>Live Support</h3>
-      </ion-label>
-    </ion-item>
-    <ion-item detail="true">
-      <ion-label>
-        <h3><strong>Signal (Molly):</strong> +591 734 367 21</h3>
-      </ion-label>
-    </ion-item>
-    <ion-item detail="true">
-      <ion-label>
-        <h3><strong>Email:</strong> info@stellarsecurity.com</h3>
-      </ion-label>
-    </ion-item>
-    <ion-item detail="true">
-      <ion-label>
-        <h3><strong>Website:</strong>  <a href="https://stellarsecurity.com/">stellarsecurity.com</a></h3>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  <br><br><br><br>
+      <ion-card class="cardStyleSelected">
+        <ion-card-content>
 
+          <ion-row>
+            <ion-col size="2">
+              <img alt="Silhouette of mountains" src="assets/img/cardFive.png" width="40px" />
+            </ion-col>
+            <ion-col size="6">
+              <h2 class="cardHeadingSelected">Live Support</h2>
+              <p class="cardPparagraphSelected">write to us now and get help</p>
+            </ion-col>
+            <ion-col (click)="openIntercom()" class="pt-5" size="4">
+              <span class="tagSelected extraPadding">Chat Now</span>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="cardStyle">
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col size="2">
+              <img alt="Silhouette of mountains" src="assets/img/cardOne.png" width="40px" />
+            </ion-col>
+            <ion-col size="6">
+              <h2 class="cardHeading">Signal (Molly)</h2>
+              <p class="cardPparagraph">Contact us on Signal or Molly and get help</p>
+            </ion-col>
+            <ion-col class="pt-5" size="4">
+              <span class="tag">+59173436721</span>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card class="cardStyle">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="2">
+              <img alt="Silhouette of mountains" src="assets/img/cardTwo.png" width="40px" />
+            </ion-col>
+            <ion-col size="6">
+              <h2 class="cardHeading">Email Support</h2>
+              <p class="cardPparagraph">Send Email we will reply as soon as possible.</p>
+            </ion-col>
+            <ion-col class="pt-5" size="4">
+              <span class="tag extraPadding">Email US</span>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="cardStyle">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="2">
+              <img alt="Silhouette of mountains" src="assets/img/cardThree.png" width="40px" />
+            </ion-col>
+            <ion-col size="6">
+              <h2 class="cardHeading">Website</h2>
+              <p class="cardPparagraph">Visit StellarSecurity.com and get help there by using our form or
+                live-chat support.</p>
+            </ion-col>
+            <ion-col class="pt-5" size="4">
+              <span class="tag extraPadding">&nbsp;&nbsp;&nbsp;&nbsp;Visit&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+        </ion-card>
+
+      <ion-card class="cardStyle">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="2">
+              <img alt="Silhouette of mountains" src="assets/img/cardFour.png" width="40px" />
+            </ion-col>
+            <ion-col size="6">
+              <h2 class="cardHeading">Telegram</h2>
+              <p class="cardPparagraph">Contact us on telegram</p>
+            </ion-col>
+            <ion-col class="pt-5" size="4">
+              <span class="tag">Stellar_Security</span>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+        </ion-card>
+
+    </div>
+
+  </div>
 
 </ion-content>
-
-<ion-footer>
-  <div align="center">
-    <img src="/assets/Logo_Steller_Security_RGB.svg" style="width: 200px;  height: 70px">
-  </div>
-</ion-footer>
