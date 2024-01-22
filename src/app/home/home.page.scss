@@ -7,6 +7,13 @@ body {
   height: 100%;
 }
 
+.logo {
+  margin-top: 10px;
+  height: 30px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
 .innerBox {
   background-color: #FFFFFF;
   height: 90%;
@@ -22,25 +29,24 @@ body {
       font-size: 18px;
       line-height: 21.75px;
     }
-    
+
     .mainHeading {
       font-family: 'TwCen', sans-serif;
-      font-weight: 500;
+      font-weight: 700;
       font-size: 20px;
       line-height: 19.3px;
       letter-spacing: -3%;
       text-align: Center;
       color: #4264FA;
     }
-    
+
     .cardHeading {
       font-family: 'TwCen', sans-serif;
       font-weight: 500;
-      font-size: 16px;
-      line-height: 16.89px;
+      font-size: 21px;
       color: #4264FB;
     }
-    
+
     .cardHeadingSelected {
       font-family: 'TwCen', sans-serif;
       font-weight: 500;
@@ -48,17 +54,17 @@ body {
       line-height: 16.89px;
       color: #ffffff;
     }
-    
+
     .paragraph {
       font-family: 'TwCen', sans-serif;
       font-weight: 400;
-      font-size: 14px;
-      line-height: 12px;
+      font-size: 16px;
+      line-height: 20px;
       letter-spacing: -2%;
       text-align: Center;
       color: #4D4C4C;
     }
-    
+
     .cardStyle {
       font-family: 'TwCen', sans-serif;
       border: 2px solid #00000012;
@@ -115,8 +121,7 @@ a {
 .cardPparagraph {
   font-family: 'TwCen', sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 16px;
   color: #8E8E8E;
 }
 
