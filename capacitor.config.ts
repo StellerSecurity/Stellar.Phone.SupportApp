@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'Stellar.Phone.SupportApp',
+  appId: 'stellar.phone.supportapp',
   appName: 'Support',
   webDir: 'www',
   server: {
