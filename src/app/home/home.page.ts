@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Intercom } from '@capacitor-community/intercom';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,36 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 })
 export class HomePage {
 
-  constructor() {
+  private key_cache = "key_support_options";
+
+  public support_options : any;
+
+  constructor(public httpClient: HttpClient) {
     this.localNotifications().then(r => {});
+    this.init();
+  }
+
+  public init() {
+
+    // @ts-ignore
+    this.support_options = JSON.parse(localStorage.getItem(this.key_cache));
+    console.log(this.support_options);
+
+      this.httpClient.get('https://stellarphoneuisupportappapiprod.azurewebsites.net/api/v1/supportcontroller/info')
+      .subscribe(data => {
+
+        this.support_options = data;
+
+        localStorage.setItem(this.key_cache, JSON.stringify(data));
+      })
+  }
+
+  public handleRefresh(event: any) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      this.init();
+      event.target.complete();
+    }, 2000);
   }
 
   private async localNotifications() {
