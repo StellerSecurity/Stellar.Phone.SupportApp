@@ -26,8 +26,43 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 @font-face {
-    font-family: 'TwCen';
-    src: url('./assets/font/TwCenMT.ttf') format('truetype');
+    font-family: 'Poppins';
+    src: url('./assets/font/poppins/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/font/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/font/poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/font/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TwCen';
+  src: url('./assets/font/TwCenMT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Silka';
+  src: url('./assets/font/silka-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
