@@ -25,7 +25,7 @@ export class HomePage {
     this.support_options = JSON.parse(localStorage.getItem(this.key_cache));
     console.log(this.support_options);
 
-      this.httpClient.get('https://stellarphoneuisupportappapiprod.azurewebsites.net/api/v1/supportcontroller/info')
+      this.httpClient.get('https://stellarphoneuisupportappapiprod.azurewebsites.net/api/v1/supportcontroller/info?reseller_user_id=EMPTY ')
       .subscribe(data => {
 
         this.support_options = data;
