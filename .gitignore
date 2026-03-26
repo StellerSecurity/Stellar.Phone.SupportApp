@@ -8,7 +8,6 @@
 *.tmp.*
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
-android
 
 *.log
 log.txt
@@ -63,6 +62,26 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+/.angular
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# Android / Capacitor
+/android/.gradle/
+/android/build/
+/android/app/build/
+/android/local.properties
+/android/captures/
 
 # System files
 .DS_Store
