@@ -22,7 +22,7 @@
           <p class="section-eyebrow">Contact options</p>
           <h2 class="section-title">Choose how you want to connect</h2>
           <p class="section-description">
-            Support methods are loaded directly from our service.
+            Choose a trusted support channel below.
           </p>
         </div>
 
@@ -51,24 +51,10 @@
           <div class="empty-state">
             <p class="empty-state__title">No support options available.</p>
             <p class="empty-state__description">
-              Pull to refresh and try again.
+              Please try again later.
             </p>
           </div>
         </ng-template>
-      </div>
-
-      <div class="cta-panel" *ngIf="liveChatAvailable">
-        <p class="cta-panel__eyebrow">Quick support</p>
-        <h3 class="cta-panel__title">Need help right now?</h3>
-        <p class="cta-panel__description">
-          Start a live conversation with our support team.
-        </p>
-
-        <div class="cta-actions">
-          <button class="cta-button cta-button--primary" type="button" (click)="openIntercom()">
-            Start Live Chat
-          </button>
-        </div>
       </div>
 
       <div class="footer-branding">
