@@ -23,7 +23,7 @@ export class HomePage {
     {
       type: 'signal',
       title: 'Signal',
-      contact: 'StellarSecurity.30',
+      contact: 'StellarSecurity.20',
       description: 'Contact us on Signal or Molly and get help.',
     },
     {
