@@ -1,90 +1,81 @@
-<ion-content [fullscreen]="true">
-
+<ion-content [fullscreen]="true" class="support-page">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div class="outerBox" id="container">
-    <br>
-    <h3 class="supportText"><img class="support-text-img" src="assets/img/header-icon.svg"/>Stellar Support</h3>
-    <br>
-    <div class="innerBox">
-      <div>
-        <p class="title">Few ways to connect!</p>
-        <div class="appInfo">
-          <p class="paragraph">Stellar offers many ways to help its users<br> and the broader community.</p>
+  <div class="page-shell">
+    <section class="hero-section">
+      <div class="brand-pill">
+        <img class="brand-pill__icon" src="assets/img/header-icon.svg" alt="Stellar Support icon" />
+        <span>Stellar Support</span>
+      </div>
+
+      <h1 class="hero-title">Need help?</h1>
+      <p class="hero-subtitle">
+        Reach our team through your preferred support channel.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <div class="section-block">
+        <div class="section-heading">
+          <p class="section-eyebrow">Contact options</p>
+          <h2 class="section-title">Choose how you want to connect</h2>
+          <p class="section-description">
+            Support methods are loaded directly from our service.
+          </p>
         </div>
 
+        <div class="contact-list" *ngIf="supportOptions.length > 0; else emptyState">
+          <a
+            *ngFor="let option of supportOptions"
+            class="contact-item"
+            [href]="getContactHref(option)"
+            [attr.target]="isExternalLink(option) ? '_blank' : null"
+            [attr.rel]="isExternalLink(option) ? 'noopener noreferrer' : null"
+            (click)="openContact(option, $event)"
+          >
+            <div class="contact-icon">
+              <img [src]="getContactImagePath(option)" [alt]="option.title + ' icon'" />
+            </div>
 
-        <ion-card class="cardStyle">
-          <ion-card-content>
+            <div class="contact-copy">
+              <p class="contact-label">{{ option.title }}</p>
+              <span class="contact-value">{{ option.contact }}</span>
+              <p class="contact-description">{{ option.description }}</p>
+            </div>
+          </a>
+        </div>
 
-            <ion-row class="option-row">
-              <ion-col class="option-col image-col" size="1">
-                <img alt="Silhouette of mountains" src="assets/img/write-us.svg" width="24px" />
-              </ion-col>
-              <ion-col class="option-col text-col" size="11">
-                <h2 class="cardHeading">Write Us</h2>
-                <a>
-                  <span class="tag">info@stellarsecurity.com</span>
-                </a>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="option-row">
-              <ion-col class="option-col image-col" size="1">
-                <img alt="Silhouette of mountains" src="assets/img/signal.svg" width="24px" />
-              </ion-col>
-              <ion-col class="option-col text-col" size="11">
-                <h2 class="cardHeading">Signal</h2>
-                <a href="https://signal.me/#eu/ScgeKkSwNh1RIpSx2e4g1tAFJuAGs2qP6juWwes-3Wv0qBJSwXZG_pXlYo0p0o9T" target="_blank">
-                  <span class="tag">StellarSecurity.30</span>
-                </a>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="option-row">
-              <ion-col class="option-col image-col" size="1">
-                <img alt="Silhouette of mountains" src="assets/img/telegram.svg" width="24px" />
-              </ion-col>
-              <ion-col class="option-col text-col" size="11">
-                <h2 class="cardHeading">Telegram</h2>
-                <a>
-                  <a href="https://telegram.me/Stellar_Security" target="_blank">
-                    <span class="tag">@Stellar_Security</span>
-                  </a>
-                </a>
-              </ion-col>
-            </ion-row>
-
-          </ion-card-content>
-        </ion-card>
-
-        <div class="hr-container"><hr></div>
-
-        <p class="live-chat-label">Get Help using our form or live chat support</p>
-
-        <ion-row class="option-row live-chat-wrapper">
-          <ion-col class="option-col image-col" size="1">
-            <img alt="Silhouette of mountains" src="assets/img/www.svg" width="24px" />
-          </ion-col>
-          <ion-col class="option-col text-col" size="11">
-            <h2 class="cardHeading">Website</h2>
-            <a href="https://stellarsecurity.com" target="_blank">
-              <span class="tag">stellarsecurity.com</span>
-            </a>
-          </ion-col>
-        </ion-row>
+        <ng-template #emptyState>
+          <div class="empty-state">
+            <p class="empty-state__title">No support options available.</p>
+            <p class="empty-state__description">
+              Pull to refresh and try again.
+            </p>
+          </div>
+        </ng-template>
       </div>
 
-      <div class="logo-container">
-        <a href="https://stellarsecurity.com" target="_blank">
-          <img src="/assets/img/footer-logo.svg" class="logo">
+      <div class="cta-panel" *ngIf="liveChatAvailable">
+        <p class="cta-panel__eyebrow">Quick support</p>
+        <h3 class="cta-panel__title">Need help right now?</h3>
+        <p class="cta-panel__description">
+          Start a live conversation with our support team.
+        </p>
+
+        <div class="cta-actions">
+          <button class="cta-button cta-button--primary" type="button" (click)="openIntercom()">
+            Start Live Chat
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-branding">
+        <a href="https://stellarsecurity.com" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/img/footer-logo.svg" class="footer-branding__logo" alt="Stellar Security" />
         </a>
-
       </div>
-
-    </div>
+    </section>
   </div>
-
 </ion-content>

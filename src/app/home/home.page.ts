@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
 import { Intercom } from '@capacitor-community/intercom';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import {HttpClient} from "@angular/common/http";
+
+type SupportOptionType = 'signal' | 'telegram' | 'email' | 'website';
+
+interface SupportOption {
+  type: SupportOptionType;
+  title: string;
+  contact: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -9,75 +17,106 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public readonly liveChatAvailable = true;
 
-  private key_cache = "key_support_options";
+  public readonly supportOptions: SupportOption[] = [
+    {
+      type: 'signal',
+      title: 'Signal',
+      contact: 'StellarSecurity.30',
+      description: 'Contact us on Signal or Molly and get help.',
+    },
+    {
+      type: 'telegram',
+      title: 'Telegram',
+      contact: '@Stellar_Security',
+      description: 'Contact us on Telegram.',
+    },
+    {
+      type: 'email',
+      title: 'Email',
+      contact: 'info@stellarsecurity.com',
+      description: 'Send us an email and we will reply as soon as possible.',
+    },
+    {
+      type: 'website',
+      title: 'Website',
+      contact: 'stellarsecurity.com',
+      description: 'Visit our website and get help there using our form or live chat support.',
+    },
+  ];
 
-  public support_options : any;
-
-  constructor(public httpClient: HttpClient) {
-    this.localNotifications().then(r => {});
-    this.init();
+  constructor() {
+    this.localNotifications().then(() => {});
   }
 
-  public init() {
-
-    // @ts-ignore
-    this.support_options = JSON.parse(localStorage.getItem(this.key_cache));
-    console.log(this.support_options);
-
-      this.httpClient.get('https://stellarphoneuisupportappapiprod.azurewebsites.net/api/v1/supportcontroller/info?reseller_user_id=EMPTY ')
-      .subscribe(data => {
-
-        this.support_options = data;
-
-        localStorage.setItem(this.key_cache, JSON.stringify(data));
-      })
+  public handleRefresh(event: Event): void {
+    const refresher = event.target as HTMLIonRefresherElement | null;
+    refresher?.complete();
   }
 
-  public handleRefresh(event: any) {
-    setTimeout(() => {
-      // Any calls to load data go here
-      this.init();
-      event.target.complete();
-    }, 2000);
+  public getContactHref(option: SupportOption): string {
+    switch (option.type) {
+      case 'email':
+        return `mailto:${option.contact}`;
+      case 'website':
+        return 'https://stellarsecurity.com';
+      case 'telegram':
+        return 'https://telegram.me/Stellar_Security';
+      case 'signal':
+        return 'https://signal.me/#eu/ScgeKkSwNh1RIpSx2e4g1tAFJuAGs2qP6juWwes-3Wv0qBJSwXZG_pXlYo0p0o9T';
+      default:
+        return '#';
+    }
   }
 
-  private async localNotifications() {
+  public getContactImagePath(option: SupportOption): string {
+    switch (option.type) {
+      case 'email':
+        return 'assets/img/write-us.svg';
+      case 'signal':
+        return 'assets/img/signal.svg';
+      case 'telegram':
+        return 'assets/img/telegram.svg';
+      case 'website':
+        return 'assets/img/www.svg';
+      default:
+        return 'assets/img/header-icon.svg';
+    }
+  }
+
+  public isExternalLink(option: SupportOption): boolean {
+    return option.type !== 'email';
+  }
+
+  public openContact(option: SupportOption, event: Event): void {
+    if (this.getContactHref(option) === '#') {
+      event.preventDefault();
+    }
+  }
+
+  private async localNotifications(): Promise<void> {
     const permissions = await LocalNotifications.checkPermissions();
-    console.log('checkPermissions result:', permissions);
+
     if (permissions.display !== 'granted') {
       const newPermissions = await LocalNotifications.requestPermissions();
-      console.log('requestPermissions result:', newPermissions);
+
       if (newPermissions.display === 'denied') {
-        // Always ends up here, without showing any notification permission prompt
-        throw new Error(`No permission to show notifications`);
+        throw new Error('No permission to show notifications');
       }
     }
-
-    /*let notifs = await LocalNotifications.schedule({
-      notifications: [
-        {
-          title: 'Stellar Data',
-          body: 'You have 1 GB remaining',
-          id: 1,
-          schedule: { at: new Date(Date.now() + 1000 * 5) },
-          actionTypeId: '',
-          extra: null,
-        },
-      ],
-    });*/
   }
 
-  openIntercom() {
+  public openIntercom(): void {
     Intercom.registerUnidentifiedUser();
-    Intercom.displayMessageComposer({ message: "" });
+    Intercom.displayMessageComposer({ message: '' });
   }
-  displayLauncher() {
+
+  public displayLauncher(): void {
     Intercom.displayLauncher();
   }
 
-  hideLauncher() {
+  public hideLauncher(): void {
     Intercom.hideLauncher();
   }
-
 }
